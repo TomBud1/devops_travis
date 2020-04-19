@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+        - docker
+
+before_install:
+        - docker build -t TomBud1/devops_travis -f Dockerfile.dev
+
+script:
+        - docker run -e CI=true TomBud1/devops_travis yarn test 
